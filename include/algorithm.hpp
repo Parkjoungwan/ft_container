@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:04:22 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/18 21:37:22 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/21 15:53:43 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ namespace ft
 	}
 	template <typename InputIterator1, typename InputIterator2, typename Compare>
 	bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,
-			InputIterator2 first2, InputIterator2 last2, Compare comp)
+			InputIterator2 first2, InputIterator2 last2, Compare Comp)
 	{
 		while (first1 != last1)
 		{

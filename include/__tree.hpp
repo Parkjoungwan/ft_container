@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:46:27 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/20 16:04:22 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/21 15:56:34 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,7 +248,7 @@ namespace ft
 	//_Alloc: allocator
 	template <typename _Key, typename _Val, typename _KeyOfValue,
             typename _Compare = std::less<_Key>,
-            typename _Alloc = std::allocator<_Val>>
+            typename _Alloc = std::allocator<_Val> >
 	class __tree
 	{
 		private:
@@ -268,7 +268,7 @@ namespace ft
 			typedef ptrdiff_t difference_type;
 			typedef _Alloc allocator_type;
 
-			typedef typename _Alloc::template rebind<__tree_node<_Val>>::other
+			typedef typename _Alloc::template rebind<__tree_node<_Val> >::other
 			_Node_allocator;
 
 			typedef __tree_iterator<value_type> iterator;

@@ -6,12 +6,12 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 21:49:16 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/20 13:36:25 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/21 15:54:10 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITERATOR_HPP
-#ifndef ITERATOR_HPP
+#define ITERATOR_HPP
 
 #include <cstddef>
 #include <iterator>
@@ -50,7 +50,7 @@ namespace ft
 		typedef _pointer pointer;
 		typedef _reference reference;
 		typedef _Category iterator_category;
-	}
+	};
 
 	//has_iterator_typedefs: 템플릿 매개변수가 iterator를 포함하고 있는지 확인
 	template <typename _T>
@@ -345,4 +345,5 @@ namespace ft
 		  typename iterator_traits<_InputIterator>::iterator_category());
 	}
 }
+
 #endif
