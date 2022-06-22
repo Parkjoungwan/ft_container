@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main_lib.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:31:29 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/22 13:41:53 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/22 13:44:03 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <deque>
-#include "vector.hpp"
-#include "stack.hpp"
-#include "map.hpp"
-#include "set.hpp"
+#include <vector>
+#include <stack>
+#include <map>
+#include <set>
 #include <stdlib.h>
 
 
@@ -31,7 +31,7 @@ struct Buffer
 #define COUNT (MAX_RAM / (int)sizeof(Buffer))
 
 template <typename T>
-class MutantStack : public ft::stack<T>
+class MutantStack : public std::stack<T>
 {
 	public:
 		MutantStack() {}
@@ -43,7 +43,7 @@ class MutantStack : public ft::stack<T>
 		}
 		~MutantStack() {}
 
-		typedef typename ft::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::iterator iterator;
 
 		iterator begin() { return this->c.begin(); }
 		iterator end() { return this->c.end(); }
@@ -59,13 +59,13 @@ int main(int argc, char** argv)
 	const int seed = atoi(argv[1]);
 	srand(seed);
 
-	ft::vector<std::string> vector_str;
-	ft::vector<int> vector_int;
-	ft::stack<int> stack_int;
-	ft::vector<Buffer> vector_buffer;
-	ft::stack<Buffer, std::deque<Buffer> > stack_deq_buffer;
-	ft::map<int, int> map_int;
-	ft::set<int> set_int;
+	std::vector<std::string> vector_str;
+	std::vector<int> vector_int;
+	std::stack<int> stack_int;
+	std::vector<Buffer> vector_buffer;
+	std::stack<Buffer, std::deque<Buffer> > stack_deq_buffer;
+	std::map<int, int> map_int;
+	std::set<int> set_int;
 
 	for (int i = 0; i < COUNT; i++)
 	{
@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 		const int idx = rand() % COUNT;
 		vector_buffer[idx].idx = 5;
 	}
-	ft::vector<Buffer>().swap(vector_buffer);
+	std::vector<Buffer>().swap(vector_buffer);
 
 	try {
 		for (int i = 0; i < COUNT; i++)
@@ -94,7 +94,7 @@ int main(int argc, char** argv)
 
 	for (int i = 0; i < 1000; ++i)
 	{
-		map_int.insert(ft::make_pair(rand() % 1000, rand() % 1000));
+		map_int.insert(std::make_pair(rand() % 1000, rand() % 1000));
 	}
 
 	int sum = 0;
@@ -105,14 +105,14 @@ int main(int argc, char** argv)
 	}
 	std::cout << "seed: " << seed << "\nsum: " << sum << std::endl;
 
-	{ ft::map<int, int> copy = map_int; }
+	{ std::map<int, int> copy = map_int; }
 
 	for (int i = 0; i < COUNT; ++i)
 	{
 		set_int.insert(rand());
 	}
 
-	{ ft::set<int> copy = set_int; }
+	{ std::set<int> copy = set_int; }
 
 	MutantStack<char> iterable_stack;
 	for (char letter = 'a'; letter <= 'z'; letter++) iterable_stack.push(letter);
