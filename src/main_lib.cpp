@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:31:29 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/22 13:44:03 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/22 14:45:27 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int main(int argc, char** argv)
 	}
 	const int seed = atoi(argv[1]);
 	srand(seed);
+	std::cout << "seed num: "<< seed << std::endl;
 
 	std::vector<std::string> vector_str;
 	std::vector<int> vector_int;
@@ -100,10 +101,10 @@ int main(int argc, char** argv)
 	int sum = 0;
 	for (int i = 0; i < 1000; i++)
 	{
-		int access = rand() % 100;
+		int access = rand() % 1000;
 		sum += map_int[access];
 	}
-	std::cout << "seed: " << seed << "\nsum: " << sum << std::endl;
+	std::cout << "map elements sum: " << sum << std::endl;
 
 	{ std::map<int, int> copy = map_int; }
 

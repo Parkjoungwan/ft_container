@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:31:29 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/22 13:49:42 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/22 14:45:12 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,13 @@ int main(int argc, char** argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "You should insert seed!! ./container [seed]" << std::endl;
+		std::cerr << "You should insert seed!!/n ./container [seed]" << std::endl;
 		return 1;
 	}
 	//rand seed 값
 	const int seed = atoi(argv[1]);
 	srand(seed);
+	std::cout << "seed num: "<< seed << std::endl; 
 
 	//변수 선언 체크
 	ft::vector<std::string> vector_str;
@@ -104,10 +105,10 @@ int main(int argc, char** argv)
 	int sum = 0;
 	for (int i = 0; i < 1000; i++)
 	{
-		int access = rand() % 100;
+		int access = rand() % 1000;
 		sum += map_int[access];
 	}
-	std::cout << "seed: " << seed << "\nsum: " << sum << std::endl;
+	std::cout << "map element sum: " << sum << std::endl;
 
 	{ ft::map<int, int> copy = map_int; }
 
