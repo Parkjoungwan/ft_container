@@ -6,7 +6,7 @@
 /*   By: joupark <joupark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:31:29 by joupark           #+#    #+#             */
-/*   Updated: 2022/06/22 13:41:53 by joupark          ###   ########.fr       */
+/*   Updated: 2022/06/22 13:49:42 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ int main(int argc, char** argv)
 		std::cerr << "You should insert seed!! ./container [seed]" << std::endl;
 		return 1;
 	}
+	//rand seed 값
 	const int seed = atoi(argv[1]);
 	srand(seed);
 
+	//변수 선언 체크
 	ft::vector<std::string> vector_str;
 	ft::vector<int> vector_int;
 	ft::stack<int> stack_int;
@@ -67,6 +69,7 @@ int main(int argc, char** argv)
 	ft::map<int, int> map_int;
 	ft::set<int> set_int;
 
+	//vector 생성 및 삽입 체크
 	for (int i = 0; i < COUNT; i++)
 	{
 		vector_buffer.push_back(Buffer());
@@ -92,6 +95,7 @@ int main(int argc, char** argv)
 		std::cerr << "Vector check end." << std::endl;
 	}
 
+	//map 생성 및 탐색 체크
 	for (int i = 0; i < 1000; ++i)
 	{
 		map_int.insert(ft::make_pair(rand() % 1000, rand() % 1000));
@@ -107,6 +111,7 @@ int main(int argc, char** argv)
 
 	{ ft::map<int, int> copy = map_int; }
 
+	//set 생성 및 삽입 체크
 	for (int i = 0; i < COUNT; ++i)
 	{
 		set_int.insert(rand());
@@ -114,6 +119,7 @@ int main(int argc, char** argv)
 
 	{ ft::set<int> copy = set_int; }
 
+	//stack 체크
 	MutantStack<char> iterable_stack;
 	for (char letter = 'a'; letter <= 'z'; letter++) iterable_stack.push(letter);
 	for (MutantStack<char>::iterator it = iterable_stack.begin();
